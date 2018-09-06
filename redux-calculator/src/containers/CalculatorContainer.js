@@ -6,6 +6,7 @@ import * as actions from '../actions';
 import NumBtn from '../components/NumBtn';
 import PlusBtn from '../components/PlusBtn';
 import Result from '../components/Result';
+import EqualBtn from '../components/EqualBtn';
 
 
 class CalculatorContainer extends Component {
@@ -13,6 +14,9 @@ class CalculatorContainer extends Component {
     const { calculator, actions } = this.props;
     return (
       <div>
+        <div>
+          <Result result={calculator.showingResult ? calculator.resultValue : calculator.inputValue} />
+        </div>
         <div>
           <NumBtn n={1} onClick={() => actions.onNumClick(1)} />
           <NumBtn n={2} onClick={() => actions.onNumClick(2)} />
@@ -31,9 +35,7 @@ class CalculatorContainer extends Component {
         <div>
           <NumBtn n={0} onClick={() => actions.onNumClick(0)} />
           <PlusBtn onClick={actions.onPlusClick} />
-        </div>
-        <div>
-          <Result result={calculator.showingResult ? calculator.resultValue : calculator.inputValue} />
+          <EqualBtn onClick={actions.onEqualClick} />
         </div>
       </div>
     );

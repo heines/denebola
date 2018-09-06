@@ -1,6 +1,5 @@
 import * as actionTypes from '../utils/actionTypes';
 
-// 固定値？
 const initialAppState = {
   inputValue: 0,
   resultValue: 0,
@@ -15,6 +14,13 @@ const calculator = (state = initialAppState, action) => {
       showingResult: false,
     };
   } else if (action.type === actionTypes.PLUS) {
+    return {
+      ...state,
+      inputValue: 0,
+      resultValue: state.resultValue + state.inputValue,
+      showingResult: true,
+    };
+  } else if (action.type === actionTypes.EQUAL) {
     return {
       ...state,
       inputValue: 0,

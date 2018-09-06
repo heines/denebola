@@ -7,3 +7,7 @@ export const onNumClick = (number) => ({
 export const onPlusClick = () => ({
   type: actionTypes.PLUS,
 });
+
+export const onEqualClick = () => ({
+  type: actionTypes.EQUAL,
+});
