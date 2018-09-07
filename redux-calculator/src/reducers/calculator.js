@@ -17,6 +17,9 @@ const calc_arith = (state = initialAppState, arith) => {
       return state.resultValue - state.inputValue;
     case actionTypes.TIMES:
       return state.resultValue * state.inputValue;
+    case actionTypes.NONE:
+      state.resultValue = state.inputValue;
+      return state.resultValue;
     default:
       state.resultValue = state.inputValue;
       return state.resultValue;
@@ -24,7 +27,7 @@ const calc_arith = (state = initialAppState, arith) => {
 };
 
 const calculator = (state = initialAppState, action) => {
-  let tmp;
+  let tmp, value;
   switch (action.type) {
     case actionTypes.INPUT_NUMBER:
       return {
@@ -35,36 +38,22 @@ const calculator = (state = initialAppState, action) => {
     case actionTypes.PLUS:
     case actionTypes.MINUS:
     case actionTypes.TIMES:
-      if(state.calculate !== actionTypes.NONE) {
-        tmp = calc_arith(state, action.type);
-      } else {
-        tmp = calc_arith(state, actionTypes.NONE);
-      }
-
+      value = (state.calculate !== actionTypes.NONE) ? calc_arith(state, action.type) : calc_arith(state, actionTypes.NONE);
       return {
         ...state,
         inputValue: 0,
-        resultValue: tmp,
-        holdValue: tmp,
+        resultValue: value,
+        holdValue: value,
         showingResult: true,
         calculate: action.type,
       };
     case actionTypes.EQUAL:
-      switch(state.calculate) {
-        case actionTypes.PLUS:
-        case actionTypes.MINUS:
-        case actionTypes.TIMES:
-          tmp = calc_arith(state, state.calculate);
-          break;
-        default:
-          tmp = state.inputValue;
-          break;
-      }
+      value = (state.calculate !== actionTypes.NONE) ? calc_arith(state, state.calculate) : state.inputValue;
       return {
         ...state,
         inputValue: 0,
         resultValue: 0,
-        holdValue: tmp,
+        holdValue: value,
         showingResult: true,
         calculate: actionTypes.NONE,
       };
