@@ -6,6 +6,8 @@ const initialAppState = {
   resultValue: 0,
   showingResult: false,
   calculate: actionTypes.NONE,
+  pointed: false,
+  places: 0,
 };
 
 // 加減乗
@@ -34,8 +36,15 @@ const calculator = (state = initialAppState, action) => {
     case actionTypes.INPUT_NUMBER:
       return {
         ...state,
-        inputValue: state.inputValue * 10 + action.number,
+        inputValue: (state.pointed === true) ? (state.inputValue + action.number / (10.0 ** state.places)) : (state.inputValue * 10 + action.number),
         showingResult: false,
+        places: (state.places += 1),
+      };
+    case actionTypes.POINT:
+      return {
+        ...state,
+        showingResult: false,
+        pointed: true,
       };
     case actionTypes.PLUS:
     case actionTypes.MINUS:
@@ -50,6 +59,7 @@ const calculator = (state = initialAppState, action) => {
         holdValue: value,
         showingResult: true,
         calculate: (action.type === actionTypes.EQUAL ? actionTypes.NONE : action.type),
+        pointed: false,
       };
     default:
       return state;

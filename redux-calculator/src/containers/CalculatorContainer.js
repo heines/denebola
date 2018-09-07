@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
 import NumBtn from '../components/NumBtn';
+import PointBtn from '../components/PointBtn';
 import { PlusBtn, MinusBtn, TimesBtn, DivisionBtn } from '../components/ArithmeticBtn';
 import Result from '../components/Result';
 import EqualBtn from '../components/EqualBtn';
@@ -37,6 +38,7 @@ class CalculatorContainer extends Component {
         </div>
         <div>
           <NumBtn n={0} onClick={() => actions.onNumClick(0)} />
+          <PointBtn onClick={actions.onPointClick} />
           <EqualBtn onClick={actions.onEqualClick} />
           <PlusBtn onClick={actions.onPlusClick} />
         </div>
