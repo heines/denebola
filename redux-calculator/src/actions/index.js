@@ -24,3 +24,10 @@ export const onDivisionClick = () => ({
 export const onEqualClick = () => ({
   type: actionTypes.EQUAL,
 });
+
+export const onClearClick = () => ({
+  type: actionTypes.CLEAR,
+});
+export const onAClearClick = () => ({
+  type: actionTypes.ACLEAR,
+});

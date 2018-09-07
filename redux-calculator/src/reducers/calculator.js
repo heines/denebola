@@ -62,6 +62,24 @@ const calculator = (state = initialAppState, action) => {
         pointed: false,
         places: 0,
       };
+    case actionTypes.CLEAR:
+      return {
+        ...state,
+        inputValue: 0,
+        pointed: false,
+        places: 0,
+      };
+    case actionTypes.ACLEAR:
+      return {
+        ...state,
+        inputValue: 0,
+        holdValue: 0,
+        resultValue: 0,
+        showingResult: false,
+        calculate: actionTypes.NONE,
+        pointed: false,
+        places: 0,
+      };
     default:
       return state;
   }

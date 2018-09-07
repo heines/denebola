@@ -5,4 +5,6 @@ export const MINUS = 'MINUS';
 export const TIMES = 'TIMES';
 export const DIVISION = 'DIVISION';
 export const EQUAL = 'EQUAL';
+export const CLEAR = 'CLEAR';
+export const ACLEAR = 'ACLEAR';
 export const NONE = 'NONE';

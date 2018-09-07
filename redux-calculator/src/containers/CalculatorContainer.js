@@ -8,7 +8,7 @@ import PointBtn from '../components/PointBtn';
 import { PlusBtn, MinusBtn, TimesBtn, DivisionBtn } from '../components/ArithmeticBtn';
 import Result from '../components/Result';
 import EqualBtn from '../components/EqualBtn';
-
+import { ClearBtn, AClearBtn } from '../components/ClearBtn';
 
 class CalculatorContainer extends Component {
   render(){
@@ -17,6 +17,10 @@ class CalculatorContainer extends Component {
       <div>
         <div>
           <Result result={calculator.showingResult ? calculator.holdValue : calculator.inputValue} />
+        </div>
+        <div>
+          <ClearBtn onClick={actions.onClearClick} />
+          <AClearBtn onClick={actions.onAClearClick} />
         </div>
         <div>
           <NumBtn n={1} onClick={() => actions.onNumClick(1)} />
