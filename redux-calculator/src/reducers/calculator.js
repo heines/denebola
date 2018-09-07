@@ -60,6 +60,7 @@ const calculator = (state = initialAppState, action) => {
         showingResult: true,
         calculate: (action.type === actionTypes.EQUAL ? actionTypes.NONE : action.type),
         pointed: false,
+        places: 0,
       };
     default:
       return state;
