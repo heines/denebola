@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Result = ({ result }) => (
-  <div>
-    Result: <span>{result}</span>
+  <div className="result_util">
+    <span>{result}</span>
   </div>
 );
 

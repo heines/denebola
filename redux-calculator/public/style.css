@@ -8,3 +8,14 @@ body {
   width : 60px;
   height : 50px;
 }
+
+.result_util {
+  margin: 1px;
+  font-size: 25px;
+  padding: 5px;
+  border: 1px solid #AAAAAA;
+  background-color: #EEEEEE;
+  text-align: right;
+  width : 234px;
+  height : 30px;
+}
