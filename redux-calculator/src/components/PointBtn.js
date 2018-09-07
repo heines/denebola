@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PointBtn = ({onClick}) => (
-  <button onClick={ onClick }>.</button>
+  <button className="btn_util" onClick={ onClick }>.</button>
 );
 
 PointBtn.propTypes = {

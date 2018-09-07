@@ -1,3 +1,10 @@
 body {
   background-color: #cccccc;
 }
+
+.btn_util {
+  margin: 1px;
+  font-size: 20px;
+  width : 60px;
+  height : 50px;
+}
