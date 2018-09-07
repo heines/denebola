@@ -4,10 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from '../actions';
 import NumBtn from '../components/NumBtn';
-import PlusBtn from '../components/PlusBtn';
-import MinusBtn from '../components/MinusBtn';
-import TimesBtn from '../components/TimesBtn';
-import DivisionBtn from '../components/DivisionBtn';
+import { PlusBtn, MinusBtn, TimesBtn, DivisionBtn } from '../components/ArithmeticBtn';
 import Result from '../components/Result';
 import EqualBtn from '../components/EqualBtn';
 
