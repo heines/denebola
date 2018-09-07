@@ -13,6 +13,9 @@ export const onMinusClick = () => ({
 export const onTimesClick = () => ({
   type: actionTypes.TIMES,
 });
+export const onDivisionClick = () => ({
+  type: actionTypes.DIVISION,
+});
 export const onEqualClick = () => ({
   type: actionTypes.EQUAL,
 });

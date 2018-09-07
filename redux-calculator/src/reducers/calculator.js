@@ -17,6 +17,8 @@ const calc_arith = (state = initialAppState, arith) => {
       return state.resultValue - state.inputValue;
     case actionTypes.TIMES:
       return state.resultValue * state.inputValue;
+    case actionTypes.DIVISION:
+      return state.resultValue / state.inputValue;
     case actionTypes.NONE:
       state.resultValue = state.inputValue;
       return state.resultValue;
@@ -38,6 +40,7 @@ const calculator = (state = initialAppState, action) => {
     case actionTypes.PLUS:
     case actionTypes.MINUS:
     case actionTypes.TIMES:
+    case actionTypes.DIVISION:
     case actionTypes.EQUAL:
       value = (state.calculate !== actionTypes.NONE) ? calc_arith(state, state.calculate) : calc_arith(state, actionTypes.NONE);
       return {
