@@ -15,7 +15,7 @@ class CalculatorContainer extends Component {
     return (
       <div>
         <div>
-          <Result result={calculator.showingResult ? calculator.resultValue : calculator.inputValue} />
+          <Result result={calculator.showingResult ? calculator.holdValue : calculator.inputValue} />
         </div>
         <div>
           <NumBtn n={1} onClick={() => actions.onNumClick(1)} />
