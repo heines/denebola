@@ -43,10 +43,10 @@ const calculator = (state = initialAppState, action) => {
       return {
         ...state,
         inputValue: 0,
-        resultValue: (action.type == actionTypes.EQUAL ? 0 : value),
+        resultValue: (action.type === actionTypes.EQUAL ? 0 : value),
         holdValue: value,
         showingResult: true,
-        calculate: (action.type == actionTypes.EQUAL ? actionTypes.NONE : action.type),
+        calculate: (action.type === actionTypes.EQUAL ? actionTypes.NONE : action.type),
       };
     default:
       return state;
