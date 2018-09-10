@@ -14,7 +14,7 @@ class CalculatorContainer extends Component {
   render(){
     const { calculator, actions } = this.props;
     return (
-      <div>
+      <div className="calc_body">
         <div>
           <Result result={calculator.showingResult ? calculator.holdValue : calculator.inputValue} />
         </div>

@@ -1,6 +1,6 @@
 import * as actionTypes from '../utils/actionTypes';
 
-const initialAppState = {
+const initialAppState = { // Object literal
   inputValue: 0,
   holdValue: 0,
   resultValue: 0,
@@ -11,7 +11,7 @@ const initialAppState = {
 };
 
 // 加減乗
-const calc_arith = (state = initialAppState, arith) => {
+const calc_arith = (state = initialAppState, arith) => { // arrow function
   switch (arith) {
     case actionTypes.PLUS:
       return state.resultValue + state.inputValue;
@@ -30,7 +30,7 @@ const calc_arith = (state = initialAppState, arith) => {
   }
 };
 
-const calculator = (state = initialAppState, action) => {
+const calculator = (state = initialAppState, action) => { // arrow function
   let value;
   switch (action.type) {
     case actionTypes.INPUT_NUMBER:
