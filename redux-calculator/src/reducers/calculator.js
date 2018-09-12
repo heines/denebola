@@ -6,8 +6,6 @@ const initialAppState = { // Object literal
   resultValue: 0,
   showingResult: false,
   calculate: actionTypes.NONE,
-  pointed: false,
-  places: 0,
 };
 
 // 加減乗
@@ -34,23 +32,18 @@ const calculator = (state = initialAppState, action) => { // arrow function
   let value;
   switch (action.type) {
     case actionTypes.INPUT_NUMBER:
-      return {
-        ...state,
-        inputValue: (state.pointed === true) ? (state.inputValue + action.number / (10.0 ** state.places)) : (state.inputValue * 10 + action.number),
-        showingResult: false,
-        places: (state.places += 1),
-      };
     case actionTypes.POINT:
-      return {
-        ...state,
-        showingResult: false,
-        pointed: true,
-      };
+    return {
+      ...state,
+      inputValue: (state.inputValue == '0' ? ( action.number === '.' ? state.inputValue + String(action.number) : String(action.number)) : state.inputValue + String(action.number)),
+      showingResult: false,
+    };
     case actionTypes.PLUS:
     case actionTypes.MINUS:
     case actionTypes.TIMES:
     case actionTypes.DIVISION:
     case actionTypes.EQUAL:
+      state.inputValue = parseFloat(state.inputValue);
       value = (state.calculate !== actionTypes.NONE) ? calc_arith(state, state.calculate) : calc_arith(state, actionTypes.NONE);
       return {
         ...state,
@@ -59,15 +52,11 @@ const calculator = (state = initialAppState, action) => { // arrow function
         holdValue: value,
         showingResult: true,
         calculate: (action.type === actionTypes.EQUAL ? actionTypes.NONE : action.type),
-        pointed: false,
-        places: 0,
       };
     case actionTypes.CLEAR:
       return {
         ...state,
         inputValue: 0,
-        pointed: false,
-        places: 0,
       };
     case actionTypes.ACLEAR:
       return {
@@ -77,8 +66,6 @@ const calculator = (state = initialAppState, action) => { // arrow function
         resultValue: 0,
         showingResult: false,
         calculate: actionTypes.NONE,
-        pointed: false,
-        places: 0,
       };
     default:
       return state;

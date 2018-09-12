@@ -42,7 +42,7 @@ class CalculatorContainer extends Component {
         </div>
         <div>
           <NumBtn n={0} onClick={() => actions.onNumClick(0)} />
-          <PointBtn onClick={actions.onPointClick} />
+          <NumBtn n={'.'} onClick={() => actions.onNumClick('.')} />
           <EqualBtn onClick={actions.onEqualClick} />
           <PlusBtn onClick={actions.onPlusClick} />
         </div>
