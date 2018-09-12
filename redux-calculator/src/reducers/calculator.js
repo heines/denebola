@@ -1,7 +1,7 @@
 import * as actionTypes from '../utils/actionTypes';
 
 const initialAppState = { // Object literal
-  inputValue: 0,
+  inputValue: '0',
   holdValue: 0,
   resultValue: 0,
   showingResult: false,
@@ -35,7 +35,7 @@ const calculator = (state = initialAppState, action) => { // arrow function
     case actionTypes.POINT:
       return {
         ...state,
-        inputValue: (state.inputValue == '0' ? ( action.number === '.' ? state.inputValue + String(action.number) : String(action.number)) : state.inputValue + String(action.number)),
+        inputValue: (state.inputValue === '0' ? ( action.number === '.' ? state.inputValue + String(action.number) : String(action.number)) : state.inputValue + String(action.number)),
         showingResult: false,
       };
     case actionTypes.SHIFT:
