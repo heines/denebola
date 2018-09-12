@@ -8,6 +8,7 @@ import PointBtn from '../components/PointBtn';
 import * as abtn from '../components/ArithmeticBtn';
 import Result from '../components/Result';
 import EqualBtn from '../components/EqualBtn';
+import ShiftBtn from '../components/ShiftBtn';
 import { ClearBtn, AClearBtn } from '../components/ClearBtn';
 
 class CalculatorContainer extends Component {
@@ -21,6 +22,7 @@ class CalculatorContainer extends Component {
         <div>
           <ClearBtn onClick={actions.onClearClick} />
           <AClearBtn onClick={actions.onAClearClick} />
+          <ShiftBtn onClick={actions.onShiftClick} />
         </div>
         <div>
           <NumBtn n={1} onClick={() => actions.onNumClick(1)} />

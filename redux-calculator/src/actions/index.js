@@ -19,6 +19,9 @@ export const onDivisionClick = () => ({
 export const onEqualClick = () => ({
   type: actionTypes.EQUAL,
 });
+export const onShiftClick = () => ({
+  type: actionTypes.SHIFT,
+});
 
 export const onClearClick = () => ({
   type: actionTypes.CLEAR,

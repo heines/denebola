@@ -33,11 +33,19 @@ const calculator = (state = initialAppState, action) => { // arrow function
   switch (action.type) {
     case actionTypes.INPUT_NUMBER:
     case actionTypes.POINT:
-    return {
-      ...state,
-      inputValue: (state.inputValue == '0' ? ( action.number === '.' ? state.inputValue + String(action.number) : String(action.number)) : state.inputValue + String(action.number)),
-      showingResult: false,
-    };
+      return {
+        ...state,
+        inputValue: (state.inputValue == '0' ? ( action.number === '.' ? state.inputValue + String(action.number) : String(action.number)) : state.inputValue + String(action.number)),
+        showingResult: false,
+      };
+    case actionTypes.SHIFT:
+      value = (state.inputValue.slice(0, -1));
+      if (value === "") { value = '0'; }
+      return {
+        ...state,
+        inputValue: value,
+        showingResult: false,
+      };
     case actionTypes.PLUS:
     case actionTypes.MINUS:
     case actionTypes.TIMES:
@@ -47,7 +55,7 @@ const calculator = (state = initialAppState, action) => { // arrow function
       value = (state.calculate !== actionTypes.NONE) ? calc_arith(state, state.calculate) : calc_arith(state, actionTypes.NONE);
       return {
         ...state,
-        inputValue: 0,
+        inputValue: '0',
         resultValue: (action.type === actionTypes.EQUAL ? 0 : value),
         holdValue: value,
         showingResult: true,
@@ -56,12 +64,12 @@ const calculator = (state = initialAppState, action) => { // arrow function
     case actionTypes.CLEAR:
       return {
         ...state,
-        inputValue: 0,
+        inputValue: '0',
       };
     case actionTypes.ACLEAR:
       return {
         ...state,
-        inputValue: 0,
+        inputValue: '0',
         holdValue: 0,
         resultValue: 0,
         showingResult: false,
